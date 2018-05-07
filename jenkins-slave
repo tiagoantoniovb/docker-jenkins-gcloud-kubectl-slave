@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Usage jenkins-slave http://jenkins [SECRET] 
+
+jenkins_url="$1"
+secret="$2"
+
+java -jar /usr/share/jenkins/agent.jar -jnlpUrl $jenkins_url -secret $secret -workDir "/home/jenkins/slave"
