@@ -10,6 +10,10 @@ RUN apt-get update \
 RUN mkdir -p /home/jenkins/slave \
     && mkdir -p /usr/share/jenkins
 
+RUN curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > /tmp/get_helm.sh \
+    && chmod 700 /tmp/get_helm.sh \
+    && ./tmp/get_helm.sh
+
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 COPY agent.jar /usr/share/jenkins/agent.jar
 
